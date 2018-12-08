@@ -123,11 +123,10 @@ void HelloWorld::update(float dt)
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         auto visibleSize = Director::getInstance()->getVisibleSize();
         
-        //Estas 2 variables afectan en la colision de los cuerpos
         int velocityIterations = 8;
         int positionIterations = 3;
         
-        _world->Step(dt, velocityIterations, positionIterations); //Simulacion de la fisica puesta en world, step avanza un paso la simulacion de todos los objetos
+        _world->Step(dt, velocityIterations, positionIterations);
         
        
         for (b2Body* b = _world->GetBodyList(); b != NULL; b = b->GetNext())
@@ -138,7 +137,7 @@ void HelloWorld::update(float dt)
                 if(s->getName().find("myCar") != std::string::npos)
                     b->SetTransform(b2Vec2(s->getPositionX()/SCALE_RATIO, (s->getPositionY() + (visibleSize.height * 0.0035f))/SCALE_RATIO), 0);
                 
-                s->setPosition(b->GetPosition().x * SCALE_RATIO, b->GetPosition().y * SCALE_RATIO); //Transformo posiciones de metros (box2d) a pixel (coco2d)
+                s->setPosition(b->GetPosition().x * SCALE_RATIO, b->GetPosition().y * SCALE_RATIO); 
             }
         }
     }
