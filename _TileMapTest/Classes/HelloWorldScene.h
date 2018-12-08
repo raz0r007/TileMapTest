@@ -42,6 +42,7 @@ public:
   
     static HelloWorld* getInstance();
     void update(float);
+    void BeginContact(b2Contact *);
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);

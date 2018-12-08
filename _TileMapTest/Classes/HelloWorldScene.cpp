@@ -145,6 +145,11 @@ void HelloWorld::update(float dt)
 }
 
 
+void HelloWorld::BeginContact(b2Contact *contact)
+{
+    //test
+    int a = 1;
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
